@@ -32,7 +32,7 @@ const UserState = (props) => {
     // setLoading(false);
     dispatch({
       type: GET_USERS,
-      payload: res.data.items,
+      payload: res.data,
     });
   };
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -43,6 +43,7 @@ const UserState = (props) => {
         loggedIn: state.loggedIn,
         user: state.user,
         getUser,
+        getUsers,
       }}
     >
       {props.children}
