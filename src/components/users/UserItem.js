@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container, Image, Card } from 'react-bootstrap';
 
-const DeveloperItem = ({ developer: { login, avatar_url, html_url } }) => {
+const UserItem = ({ user: { login, avatar_url, html_url } }) => {
   return (
     <Container>
       <Card style={{ width: '18rem' }}>
+        <br />
         <Image
-          className='d-block mx-auto'
+          className='mx-auto'
           height={50}
           width={50}
           src={avatar_url}
@@ -21,4 +22,4 @@ const DeveloperItem = ({ developer: { login, avatar_url, html_url } }) => {
   );
 };
 
-export default DeveloperItem;
+export default UserItem;

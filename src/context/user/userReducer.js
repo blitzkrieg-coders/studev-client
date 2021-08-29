@@ -5,7 +5,7 @@ export default (state, action) => {
     case SEARCH_USERS:
       return {
         ...state,
-        developers: action.payload,
+        users: action.payload,
       };
     default:
       return state;

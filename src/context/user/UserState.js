@@ -1,13 +1,13 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-import DeveloperContext from './developerContext';
-import DeveloperReducer from './developerReducer';
+import UserContext from './userContext';
+import UserReducer from './userReducer';
 import { SEARCH_USERS, CLEAR_USERS, GET_USER } from '../types';
-import developerReducer from './developerReducer';
+import userReducer from './userReducer';
 
-const DeveloperState = (props) => {
+const UserState = (props) => {
   const initialState = {
-    developers: [
+    users: [
       {
         login: 'ernesto',
         id: 210907,
@@ -239,13 +239,93 @@ const DeveloperState = (props) => {
         score: 1.0,
       },
     ],
+    loggedUser: {
+      login: 'Diegobr21',
+      id: 47511058,
+      node_id: 'MDQ6VXNlcjQ3NTExMDU4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/47511058?v=4',
+      gravatar_id: '',
+      url: 'https://api.github.com/users/Diegobr21',
+      html_url: 'https://github.com/Diegobr21',
+      followers_url: 'https://api.github.com/users/Diegobr21/followers',
+      following_url:
+        'https://api.github.com/users/Diegobr21/following{/other_user}',
+      gists_url: 'https://api.github.com/users/Diegobr21/gists{/gist_id}',
+      starred_url:
+        'https://api.github.com/users/Diegobr21/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/Diegobr21/subscriptions',
+      organizations_url: 'https://api.github.com/users/Diegobr21/orgs',
+      repos_url: 'https://api.github.com/users/Diegobr21/repos',
+      events_url: 'https://api.github.com/users/Diegobr21/events{/privacy}',
+      received_events_url:
+        'https://api.github.com/users/Diegobr21/received_events',
+      type: 'User',
+      site_admin: false,
+      name: null,
+      company: null,
+      blog: '',
+      location: 'Monterrey, NL',
+      email: null,
+      hireable: true,
+      bio: 'Give it your all, all the time',
+      twitter_username: null,
+      public_repos: 20,
+      public_gists: 0,
+      followers: 8,
+      following: 12,
+      created_at: '2019-02-11T01:28:49Z',
+      updated_at: '2021-08-22T01:23:50Z',
+    },
+    user: {
+      login: 'Diegobr21',
+      id: 47511058,
+      node_id: 'MDQ6VXNlcjQ3NTExMDU4',
+      avatar_url: 'https://avatars.githubusercontent.com/u/47511058?v=4',
+      gravatar_id: '',
+      url: 'https://api.github.com/users/Diegobr21',
+      html_url: 'https://github.com/Diegobr21',
+      followers_url: 'https://api.github.com/users/Diegobr21/followers',
+      following_url:
+        'https://api.github.com/users/Diegobr21/following{/other_user}',
+      gists_url: 'https://api.github.com/users/Diegobr21/gists{/gist_id}',
+      starred_url:
+        'https://api.github.com/users/Diegobr21/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/Diegobr21/subscriptions',
+      organizations_url: 'https://api.github.com/users/Diegobr21/orgs',
+      repos_url: 'https://api.github.com/users/Diegobr21/repos',
+      events_url: 'https://api.github.com/users/Diegobr21/events{/privacy}',
+      received_events_url:
+        'https://api.github.com/users/Diegobr21/received_events',
+      type: 'User',
+      site_admin: false,
+      name: null,
+      company: null,
+      blog: '',
+      location: 'Monterrey, NL',
+      email: null,
+      hireable: true,
+      bio: 'Give it your all, all the time',
+      twitter_username: null,
+      public_repos: 20,
+      public_gists: 0,
+      followers: 8,
+      following: 12,
+      created_at: '2019-02-11T01:28:49Z',
+      updated_at: '2021-08-22T01:23:50Z',
+    },
   };
-  const [state, dispatch] = useReducer(developerReducer, initialState);
+  const [state, dispatch] = useReducer(userReducer, initialState);
   return (
-    <DeveloperContext.Provider value={{ developers: state.developers }}>
+    <UserContext.Provider
+      value={{
+        users: state.users,
+        loggedUser: state.loggedUser,
+        user: state.user,
+      }}
+    >
       {props.children}
-    </DeveloperContext.Provider>
+    </UserContext.Provider>
   );
 };
 
-export default DeveloperState;
+export default UserState;

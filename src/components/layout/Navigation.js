@@ -1,30 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
+import ProfileMenu from './ProfileMenu';
+import UserContext from '../../context/user/userContext';
 import '../../index.css';
 
 const Navigation = () => {
+  const userContext = useContext(UserContext);
+  const { logged_user } = userContext;
   return (
-    <Navbar style={{ backgroundColor: '#E63946' }}>
+    <Navbar style={{ backgroundColor: '#62b6cb' }}>
       <Container>
-        <Navbar.Brand href='/' style={{ color: 'white' }}>
-          Studev
+        <Navbar.Brand href='/' style={{ color: '#F1FAEE' }}>
+          <i class='las la-book-reader'></i>Studev
         </Navbar.Brand>
         <Nav className='me-auto'>
-          <Nav.Link href='/' style={{ color: 'white' }}>
+          <Nav.Link href='/' style={{ color: '#F1FAEE' }}>
             Home
           </Nav.Link>
-          <Nav.Link href='/about' style={{ color: 'white' }}>
+          <Nav.Link href='/about' style={{ color: '#F1FAEE' }}>
             About
           </Nav.Link>
         </Nav>
         <Nav>
           <Nav.Item>
-            <Image
-              width={50}
-              height={50}
-              src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F66.media.tumblr.com%2F4baa703abd480435fad4079d1538519c%2Ftumblr_pc19zy18kB1wckczgo7_250.png&f=1&nofb=1'
-              roundedCircle
-            />
+            <ProfileMenu />
           </Nav.Item>
         </Nav>
       </Container>

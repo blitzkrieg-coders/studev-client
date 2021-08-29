@@ -5,11 +5,11 @@ import Navigation from './components/layout/Navigation';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import NotFound from './components/pages/NotFound';
-import DeveloperState from './context/developer/DeveloperState';
+import UserState from './context/user/UserState';
 
 function App() {
   return (
-    <DeveloperState>
+    <UserState>
       <Router>
         <div className='App'>
           <Navigation />
@@ -22,7 +22,7 @@ function App() {
           </Container>
         </div>
       </Router>
-    </DeveloperState>
+    </UserState>
   );
 }
 
