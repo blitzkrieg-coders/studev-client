@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import Navigation from './components/layout/Navigation';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
+import User from './components/users/User';
 import NotFound from './components/pages/NotFound';
 import UserState from './context/user/UserState';
 
@@ -17,6 +18,7 @@ function App() {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/about' component={About} />
+              <Route exact path='/user/:login' component={User} />
               <Route component={NotFound} />
             </Switch>
           </Container>

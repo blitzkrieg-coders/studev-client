@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
-import ProfileMenu from './ProfileMenu';
 import UserContext from '../../context/user/userContext';
 import '../../index.css';
 
@@ -20,11 +19,6 @@ const Navigation = () => {
           <Nav.Link href='/about' style={{ color: '#F1FAEE' }}>
             About
           </Nav.Link>
-        </Nav>
-        <Nav>
-          <Nav.Item>
-            <ProfileMenu />
-          </Nav.Item>
         </Nav>
       </Container>
     </Navbar>

@@ -8,10 +8,10 @@ const Search = () => {
         <Form.Control
           size='lg'
           type='search'
-          placeholder='Search users'
+          placeholder='Python, Java, C++'
           className='mr-2'
         />
-        <Button variant='outline-success'>Search</Button>
+        <Button variant='primary'>Search</Button>
       </Form>
     </Container>
   );
