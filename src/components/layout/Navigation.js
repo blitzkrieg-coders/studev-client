@@ -19,6 +19,10 @@ const Navigation = () => {
           <Nav.Link href='/about' style={{ color: '#F1FAEE' }}>
             About
           </Nav.Link>
+          {userContext !== null ? <Nav.Link href='/register' style={{ color: '#F1FAEE' }}>
+            Log In
+          </Nav.Link> : ''}
+          
         </Nav>
       </Container>
     </Navbar>
