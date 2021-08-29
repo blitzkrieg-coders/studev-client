@@ -1,21 +1,27 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Image, Card } from 'react-bootstrap';
 
-const UserItem = ({ user: { login, avatar_url, html_url } }) => {
+const UserItem = ({ user: { gitHubLogin, avatarUrl, repositoriesAmount } }) => {
   return (
     <Container>
       <Card style={{ width: '18rem' }}>
         <br />
         <Image
           className='mx-auto'
-          height={50}
-          width={50}
-          src={avatar_url}
+          height={75}
+          width={75}
+          src={avatarUrl}
           roundedCircle
         />
         <Card.Body>
-          <Card.Title>{login}</Card.Title>
-          <Card.Text>{html_url}</Card.Text>
+          <Card.Title>
+            <Link to={`/user/${gitHubLogin}`}>{gitHubLogin}</Link>
+          </Card.Title>
+          <Card.Text>
+            <strong>Repositories: </strong>
+            {repositoriesAmount}
+          </Card.Text>
         </Card.Body>
       </Card>
     </Container>
