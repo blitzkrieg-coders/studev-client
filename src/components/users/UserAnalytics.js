@@ -6,8 +6,10 @@ import {
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-  PieChart,
-  Pie,
+  RadialBarChart,
+  Legend,
+  Tooltip,
+  RadialBar,
 } from 'recharts';
 import { Card } from 'react-bootstrap';
 
@@ -29,24 +31,39 @@ const UserAnalytics = () => {
         <PolarAngleAxis dataKey='language' />
         <PolarRadiusAxis />
         <Radar
-          name={gitHubLogin}
+          name='Mike'
           dataKey='commits'
           stroke='#8884d8'
           fill='#8884d8'
           fillOpacity={0.6}
         />
       </RadarChart>
-      <PieChart width={730} height={250}>
-        <Pie
-          data={repositoriesStats}
+      <RadialBarChart
+        width={730}
+        height={250}
+        innerRadius='10%'
+        outerRadius='80%'
+        data={repositoriesStats}
+        startAngle={180}
+        endAngle={0}
+      >
+        <RadialBar
+          minAngle={15}
+          label={{ fill: '#666', position: 'insideStart' }}
+          background
+          clockWise={true}
           dataKey='commits'
-          nameKey='name'
-          cx='50%'
-          cy='50%'
-          outerRadius={50}
-          fill='#8884d8'
         />
-      </PieChart>
+        <Legend
+          iconSize={10}
+          width={120}
+          height={140}
+          layout='vertical'
+          verticalAlign='middle'
+          align='right'
+        />
+        <Tooltip />
+      </RadialBarChart>
     </Card>
   );
 };

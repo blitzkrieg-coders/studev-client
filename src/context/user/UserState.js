@@ -8,6 +8,7 @@ import userReducer from './userReducer';
 const UserState = (props) => {
   const initialState = {
     users: [],
+    loggedIn: {},
     user: {},
   };
   const getUser = async (username) => {
@@ -24,7 +25,7 @@ const UserState = (props) => {
   };
   const getUsers = async (language) => {
     const res = await axios.get(
-      `https://localhost:5001/api/users/details/${language}`
+      `https://localhost:5001/api/users/search?language=${language}`
     );
     // this.setState({ users: res.data.items, loading: false });
     // setUsers(res.data.items);
@@ -39,6 +40,7 @@ const UserState = (props) => {
     <UserContext.Provider
       value={{
         users: state.users,
+        loggedIn: state.loggedIn,
         user: state.user,
         getUser,
       }}
