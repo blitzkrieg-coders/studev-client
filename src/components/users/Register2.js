@@ -6,6 +6,7 @@ const Register2 = ({showRegister}) =>  {
 
     const [githubID, setID] = useState('');
     const [githubPssd, setPssd] = useState('');
+    
 
     const onChange = (e) => setID(e.target.value);
     const onChange2 = (e) => setPssd(e.target.value);
@@ -29,7 +30,6 @@ const Register2 = ({showRegister}) =>  {
                 <img src='githublogo.png' style={{width:'50px'}}></img>
                 <h1>Register with Github</h1>
             </div>
-            
             <form onSubmit={onSubmit} className='container form-vertical form-text'>
                 
                 <input type = 'text' 
@@ -49,9 +49,9 @@ const Register2 = ({showRegister}) =>  {
                 className='btn btn-dark btn-block'
                 value='Enter' />
             </form> 
-            <Link to={`/user/${1}`} className='btn btn-dark btn-sm my-1'>Verify Github profile</Link>
              
             </Fragment> 
+            
     )
         
 
