@@ -7,6 +7,7 @@ import About from './components/pages/About';
 import User from './components/users/User';
 import NotFound from './components/pages/NotFound';
 import UserState from './context/user/UserState';
+import Register2 from './components/users/Register2';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
               <Route exact path='/' component={Home} />
               <Route exact path='/about' component={About} />
               <Route exact path='/user/:login' component={User} />
+              <Route exact path ='/register' 
+                  component = {Register2} //Pass in user state login
+                  props = {true}
+              />
               <Route component={NotFound} />
             </Switch>
           </Container>
