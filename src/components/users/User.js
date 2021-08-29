@@ -13,8 +13,9 @@ const User = ({ match }) => {
   }, []);
   return (
     <Container>
-      <h1>{gitHubLogin}</h1>
+      <br />
       <UserInfo />
+      <br />
       <UserAnalytics />
     </Container>
   );

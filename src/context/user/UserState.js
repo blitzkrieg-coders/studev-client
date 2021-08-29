@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import UserContext from './userContext';
 import UserReducer from './userReducer';
-import { SEARCH_USERS, CLEAR_USERS, GET_USER } from '../types';
+import { GET_USERS, GET_USER } from '../types';
 import userReducer from './userReducer';
 
 const UserState = (props) => {
@@ -19,12 +19,12 @@ const UserState = (props) => {
     // setLoading(false);
     dispatch({
       type: GET_USER,
-      payload: res.data.items,
+      payload: res.data,
     });
   };
   const getUsers = async (language) => {
     const res = await axios.get(
-      `https://localhost:5001/api/users/details/${username}`
+      `https://localhost:5001/api/users/details/${language}`
     );
     // this.setState({ users: res.data.items, loading: false });
     // setUsers(res.data.items);
@@ -39,7 +39,6 @@ const UserState = (props) => {
     <UserContext.Provider
       value={{
         users: state.users,
-        loggedUser: state.loggedUser,
         user: state.user,
         getUser,
       }}

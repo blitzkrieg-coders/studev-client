@@ -5,27 +5,12 @@ import { Card, Image, Button } from 'react-bootstrap';
 const UserInfo = () => {
   const userContext = useContext(UserContext);
   const { user } = userContext;
-  const {
-    name,
-    company,
-    avatar_url,
-    location,
-    bio,
-    blog,
-    login,
-    html_url,
-    followers,
-    following,
-    public_repos,
-    public_gists,
-    hireable,
-  } = user;
+  const { avatarUrl, gitHubLogin } = user;
   return (
     <Card>
       <Card.Body>
-        <Image height={100} width={100} src={avatar_url} roundedCircle />
-        <h1>{login}</h1>
-        <Button variant='primary'>Go somewhere</Button>
+        <Image height={100} width={100} src={avatarUrl} roundedCircle />
+        <h1>{gitHubLogin}</h1>
       </Card.Body>
     </Card>
   );
